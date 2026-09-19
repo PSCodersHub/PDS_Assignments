@@ -42,6 +42,7 @@ Enter number of rows: 5
 * * * * *
 */
 
+
 // ii. Inverted (of Right)
 //      * * * * *
 //      * * * *
@@ -79,6 +80,7 @@ Enter number of rows: 5
 * *
 *
 */
+
 
 // iii. Left
 //          *
@@ -122,6 +124,7 @@ Enter number of rows: 5
 *****
 */
 
+
 // iv. Inverted (of Left)
 //      *****
 //       ****
@@ -163,6 +166,7 @@ Enter number of rows: 5
    **
     *
 */
+
 
 // v. Pyramid
 //          *
@@ -206,6 +210,7 @@ Enter number of rows: 5
 *********
 */
 
+
 // vi. Inverted (Pyramid)
 //      *********
 //       *******
@@ -247,6 +252,7 @@ Enter number of rows: 5
    ***
     *
 */
+
 
 // vii. Diamond
 //          *
@@ -312,6 +318,7 @@ Enter number of rows: 5
     *
 */
 
+
 // viii. Increased
 //      1
 //      1 2
@@ -349,6 +356,7 @@ Enter number of rows: 5
 1 2 3 4
 1 2 3 4 5
 */
+
 
 // ix. Decreased
 //      1 2 3 4 5
@@ -389,6 +397,7 @@ Enter number of rows: 5
 1
 */
 
+
 // x. Repeat
 //      1
 //      2 2
@@ -426,6 +435,7 @@ Enter number of rows: 5
 4 4 4 4
 5 5 5 5 5
 */
+
 
 // xi. Reverse
 //      5 4 3 2 1
@@ -465,6 +475,7 @@ Enter number of rows: 5
 5
 */
 
+
 // xii. Continuous
 //      1
 //      2 3
@@ -501,6 +512,7 @@ Enter number of rows: 4
 4 5 6
 7 8 9 10
 */
+
 
 // xiii. Pyramid
 //          1
@@ -544,6 +556,7 @@ Enter number of rows: 5
 123456789
 */
 
+
 // xiv. Repeat Pyramid
 //          1
 //         222
@@ -585,6 +598,7 @@ Enter number of rows: 5
  4444444
 555555555
 */
+
 
 // xv. Inverted (Pyramid)
 //      123456789
@@ -628,6 +642,7 @@ Enter number of rows: 5
     1
 */
 
+
 // xvi. Alphabet
 //      A
 //      AB
@@ -669,6 +684,7 @@ ABCD
 ABCDE
 */
 
+
 // xvii. Repeated
 //      A
 //      BB
@@ -708,6 +724,7 @@ CCC
 DDDD
 EEEEE
 */
+
 
 // xviii. Reverse
 //      ABCDE
@@ -750,6 +767,7 @@ AB
 A
 */
 
+
 // xix. Continuous
 //      A
 //      BC
@@ -789,6 +807,7 @@ DEF
 GHIJ
 KLMNO
 */
+
 
 // xx. Pyramid
 //          A
