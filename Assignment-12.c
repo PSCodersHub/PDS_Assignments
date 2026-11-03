@@ -372,3 +372,358 @@ Enter your choice: 7
 
 Thank you!
 */
+
+
+// Q3. WAP to sort the elements of an array by using
+//      1. Bubble sort
+//      2. Selection sort
+//      3. Insertion sort
+//      4. Quick sort
+//      5. Merge sort
+
+// ===============================================================
+//                    1. BUBBLE SORT
+// ===============================================================
+
+#include <stdio.h>
+int main()
+{
+    int a[5] = {45, 12, 89, 23, 6};
+    int i, j, temp, swapped;
+
+    /*
+    // Input 5 elements into the array
+    printf("Enter 5 elements:\n");
+    for (i = 0; i < 5; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+    */
+
+    // Bubble Sort
+    for (i = 0; i < 4; i++)
+    {
+        swapped = 0;
+
+        for (j = 0; j < 4 - i; j++)
+        {
+            if (a[j] > a[j + 1])
+            {
+                temp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = temp;
+
+                swapped = 1;
+            }
+        }
+
+        // Stop if no swapping occurs
+        if (swapped == 0)
+            break;
+    }
+
+    // Display sorted array
+    printf("Array after Bubble Sort:\n");
+    for (i = 0; i < 5; i++)
+    {
+        printf("%d\t", a[i]);
+    }
+    return 0;
+}
+/*
+OUTPUT:
+
+Array after Bubble Sort:
+6       12      23      45      89
+*/
+
+// ===============================================================
+//                    2. SELECTION SORT
+// ===============================================================
+
+#include <stdio.h>
+int main()
+{
+    int a[5] = {45, 12, 89, 23, 6};
+    int i, j, min, temp;
+
+    /*
+    // Input 5 elements into the array
+    printf("Enter 5 elements:\n");
+    for (i = 0; i < 5; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+    */
+
+    // Selection Sort
+    for (i = 0; i < 4; i++)
+    {
+        min = i;
+
+        // Find the smallest element
+        for (j = i + 1; j < 5; j++)
+        {
+            if (a[j] < a[min])
+            {
+                min = j;
+            }
+        }
+
+        // Swap the smallest element
+        if (min != i)
+        {
+            temp = a[i];
+            a[i] = a[min];
+            a[min] = temp;
+        }
+    }
+
+    // Display sorted array
+    printf("Array after Selection Sort:\n");
+    for (i = 0; i < 5; i++)
+    {
+        printf("%d\t", a[i]);
+    }
+    return 0;
+}
+/*
+OUTPUT:
+
+Array after Selection Sort:
+6       12      23      45      89
+*/
+
+// ===============================================================
+//                    3. INSERTION SORT
+// ===============================================================
+
+#include <stdio.h>
+int main()
+{
+    int a[5] = {45, 12, 89, 23, 6};
+    int i, j, key;
+
+    /*
+    // Input 5 elements into the array
+    printf("Enter 5 elements:\n");
+    for (i = 0; i < 5; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+    */
+
+    // Insertion Sort
+    for (i = 1; i < 5; i++)
+    {
+        key = a[i];
+        j = i - 1;
+
+        // Shift greater elements to the right
+        while (j >= 0 && a[j] > key)
+        {
+            a[j + 1] = a[j];
+            j--;
+        }
+
+        // Insert element at correct position
+        a[j + 1] = key;
+    }
+
+    // Display sorted array
+    printf("Array after Insertion Sort:\n");
+    for (i = 0; i < 5; i++)
+    {
+        printf("%d\t", a[i]);
+    }
+    return 0;
+}
+/*
+OUTPUT:
+
+Array after Insertion Sort:
+6       12      23      45      89
+*/
+
+// ===============================================================
+//                    4. QUICK SORT
+// ===============================================================
+
+#include <stdio.h>
+
+// Function to partition the array
+int partition(int a[], int low, int high)
+{
+    int pivot = a[high];
+    int i = low - 1;
+    int j, temp;
+
+    for (j = low; j < high; j++)
+    {
+        if (a[j] <= pivot)
+        {
+            i++;
+
+            temp = a[i];
+            a[i] = a[j];
+            a[j] = temp;
+        }
+    }
+
+    // Place pivot at correct position
+    temp = a[i + 1];
+    a[i + 1] = a[high];
+    a[high] = temp;
+
+    return i + 1;
+}
+
+// Recursive Quick Sort function
+void quickSort(int a[], int low, int high)
+{
+    int p;
+
+    if (low < high)
+    {
+        p = partition(a, low, high);
+
+        // Sort left and right parts
+        quickSort(a, low, p - 1);
+        quickSort(a, p + 1, high);
+    }
+}
+
+int main()
+{
+    int a[5] = {45, 12, 89, 23, 6};
+    int i;
+
+    /*
+    // Input 5 elements into the array
+    printf("Enter 5 elements:\n");
+    for (i = 0; i < 5; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+    */
+
+    // Call Quick Sort function
+    quickSort(a, 0, 4);
+
+    // Display sorted array
+    printf("Array after Quick Sort:\n");
+    for (i = 0; i < 5; i++)
+    {
+        printf("%d\t", a[i]);
+    }
+    return 0;
+}
+/*
+OUTPUT:
+
+Array after Quick Sort:
+6       12      23      45      89
+*/
+
+// ===============================================================
+//                    5. MERGE SORT
+// ===============================================================
+
+#include <stdio.h>
+
+// Function to merge two sorted parts
+void merge(int a[], int temp[], int left, int mid, int right)
+{
+    int i = left;
+    int j = mid + 1;
+    int k = left;
+
+    // Compare and merge elements
+    while (i <= mid && j <= right)
+    {
+        if (a[i] <= a[j])
+        {
+            temp[k] = a[i];
+            i++;
+        }
+        else
+        {
+            temp[k] = a[j];
+            j++;
+        }
+        k++;
+    }
+
+    // Copy remaining elements from left part
+    while (i <= mid)
+    {
+        temp[k] = a[i];
+        i++;
+        k++;
+    }
+
+    // Copy remaining elements from right part
+    while (j <= right)
+    {
+        temp[k] = a[j];
+        j++;
+        k++;
+    }
+
+    // Copy merged elements into original array
+    for (i = left; i <= right; i++)
+    {
+        a[i] = temp[i];
+    }
+}
+
+// Recursive Merge Sort function
+void mergeSort(int a[], int temp[], int left, int right)
+{
+    int mid;
+
+    if (left < right)
+    {
+        mid = left + (right - left) / 2;
+
+        // Divide array into two parts
+        mergeSort(a, temp, left, mid);
+        mergeSort(a, temp, mid + 1, right);
+
+        // Merge the sorted parts
+        merge(a, temp, left, mid, right);
+    }
+}
+
+int main()
+{
+    int a[5] = {45, 12, 89, 23, 6};
+    int temp[5];
+    int i;
+
+    /*
+    // Input 5 elements into the array
+    printf("Enter 5 elements:\n");
+    for (i = 0; i < 5; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+    */
+
+    // Call Merge Sort function
+    mergeSort(a, temp, 0, 4);
+
+    // Display sorted array
+    printf("Array after Merge Sort:\n");
+    for (i = 0; i < 5; i++)
+    {
+        printf("%d\t", a[i]);
+    }
+    return 0;
+}
+/*
+OUTPUT:
+
+Array after Merge Sort:
+6       12      23      45      89
+*/
